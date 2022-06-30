@@ -1,7 +1,17 @@
 import React from 'react'
 
-export default function Note({ note }) {
+export default function Note({ note, toggleImportance }) {
+
   return (
-    <li>{note.content}</li>
+    <li key={note.id}>
+      {note.content}
+      <button
+        key={(note.id + 1)}
+        type='button'
+        onClick={toggleImportance}
+      >
+        Toggle
+      </button>
+    </li>
   )
 }
