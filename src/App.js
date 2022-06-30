@@ -1,6 +1,6 @@
 import Note from './components/Note'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import noteService from '../src/services/notes'
 
 function App() {
 
@@ -9,47 +9,59 @@ function App() {
   const [showAll, setShowAll] = useState(true)
 
   const getNotes = () => {
-    axios
-      .get('http://localhost:3001/notes')
-      .then(response => setNotes(response.data))
+    noteService
+      .getAll()
+      .then(initialNotes => setNotes(initialNotes))
   };
+  useEffect(getNotes, [])
 
-  const addNote = (event) => {
+  function toggleImportance(id) {
+
+    const note = notes.find(note => note.id === id)
+    const changedNote = { ...note, important: !note.important }
+
+    noteService
+      .update(id, changedNote)
+      .then(returnedNote => {
+        setNotes(notes.map(note => note.id !== id ? note : returnedNote))
+      })
+  }
+
+
+  function addNote(event) {
     event.preventDefault()
 
     const noteObject = {
       content: newNote,
       date: new Date().toISOString(),
       important: Math.random() < 0.5,
-      id: notes.length + 1,
     }
-
-    setNotes(notes.concat(noteObject))
+    noteService
+      .create(noteObject)
+      .then(returnedNote =>
+        setNotes(notes.concat(returnedNote))
+      )
     setNewNote('')
   }
 
-  const handleNoteChange = (event) => {
-    setNewNote(event.target.value)
-  }
+  const handleNoteChange = (event) => setNewNote(event.target.value)
 
   const notesToShow = showAll
     ? notes
     : notes.filter(note => note.important === true)
 
-  useEffect(getNotes, [])
 
   return (
     <div>
       <h1>Notes</h1>
       <div>
-        <button onClick={() => setShowAll(!showAll)}>
+        <button type="button" onClick={() => setShowAll(!showAll)}>
           show {showAll ? 'important' : 'all'}
         </button>
       </div>
       <ul>
         {notesToShow.map(note => {
-          const { id } = note
-          return <Note key={id} note={note} />
+          return <Note toggleImportance={() => toggleImportance(note.id)} note={note} />
         }
         )}
       </ul>
