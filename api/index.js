@@ -11,8 +11,7 @@ const cors = require('cors')
 
 require('dotenv').config()
 
-const Note = resote')
-
+const Note = require('./models/note')
 
 app.use(express.json())
 app.use(requestLogger)
