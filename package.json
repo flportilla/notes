@@ -22,14 +22,6 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "mongoose": "^6.3.1"
-  },
-<<<<<<< HEAD
-<<<<<<< HEAD
   "browserslist": {
     "production": [
       ">0.2%",
@@ -46,18 +38,7 @@
     "cross-env": "^7.0.3",
     "jest": "^28.1.2",
     "nodemon": "^2.0.19",
-    "supertest": "^6.2.4"
-=======
-  "devDependencies": {
-      "eslint": "^8.14.0",
-      "nodemon": "^2.0.15"
->>>>>>> 08e83188f3628208df80149996235786b66333b4
-    }
-  }
-=======
-  "devDependencies": {
-    "eslint": "^8.14.0",
-    "nodemon": "^2.0.15"
+    "supertest": "^6.2.4",
+    "eslint": "^8.14.0"
   }
 }
->>>>>>> 08e83188f3628208df80149996235786b66333b4
