@@ -1,0 +1,16 @@
+GET http://localhost:3001/api/notes HTTP/1.1
+
+###
+POST http://localhost:3001/api/notes HTTP/1.1
+Content-Type: application/json
+
+{
+  "content": "This is a new note",
+  "important": true
+}
+
+###
+GET http://localhost:3001/api/notes/62c6dfa72c2f8a7d1bfd89 HTTP/1.1
+
+###
+DELETE http://localhost:3001/api/notes/62c6e16abc5bf5a74b7c08 HTTP/1.1
