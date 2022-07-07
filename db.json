@@ -4,13 +4,13 @@
       "id": 1,
       "content": "HTML is easy",
       "date": "2022-1-17T17:30:31.098Z",
-      "important": false
+      "important": true
     },
     {
       "id": 2,
       "content": "Browser can execute only JavaScript",
       "date": "2022-1-17T18:39:34.091Z",
-      "important": false
+      "important": true
     },
     {
       "id": 3,
@@ -20,81 +20,9 @@
     },
     {
       "content": "a new note...",
-      "date": "2022-06-30T12:35:36.132Z",
-      "important": true,
+      "date": "2022-07-06T23:30:35.652Z",
+      "important": false,
       "id": 4
-    },
-    {
-      "content": "new, new note",
-      "date": "2022-06-30T12:36:06.752Z",
-      "important": false,
-      "id": 5
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T12:36:39.480Z",
-      "important": false,
-      "id": 6
-    },
-    {
-      "content": "asd",
-      "date": "2022-06-30T12:36:53.592Z",
-      "important": false,
-      "id": 7
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T12:36:56.952Z",
-      "important": false,
-      "id": 8
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T13:50:38.340Z",
-      "important": false,
-      "id": 9
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T13:54:01.782Z",
-      "important": false,
-      "id": 10
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T13:58:10.776Z",
-      "important": false,
-      "id": 11
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T13:59:21.201Z",
-      "important": false,
-      "id": 12
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T14:00:09.200Z",
-      "important": false,
-      "id": 13
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T14:41:32.268Z",
-      "important": false,
-      "id": 14
-    },
-    {
-      "content": "a new note...",
-      "date": "2022-06-30T14:55:22.381Z",
-      "important": false,
-      "id": 15
-    },
-    {
-      "content": "a",
-      "date": "2022-06-30T14:55:25.157Z",
-      "important": false,
-      "id": 16
     }
   ]
 }

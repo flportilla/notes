@@ -1,0 +1,27 @@
+{
+  "name": "notes-back",
+  "version": "1.0.0",
+  "description": "backend part of the notes app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest --verbose",
+    "build:ui": "rm -rf build && /src && npm run build && cp -r build ../api",
+    "deploy": "git push heroku main",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
+    "logs:prod": "heroku logs --tail"
+  },
+  "author": "flportilla",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^28.1.2",
+    "nodemon": "^2.0.19"
+  }
+}
