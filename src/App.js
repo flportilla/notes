@@ -20,7 +20,6 @@ function App() {
         setNotes(initialNotes)
       })
   };
-
   useEffect(getNotes, [])
 
   function toggleImportance(id) {
@@ -44,6 +43,7 @@ function App() {
       })
   }
 
+
   function addNote(event) {
     event.preventDefault()
 
@@ -61,13 +61,12 @@ function App() {
     setNewNote('')
   }
 
-  function handleNoteChange(event) {
-    setNewNote(event.target.value)
-  }
+  const handleNoteChange = (event) => setNewNote(event.target.value)
 
   const notesToShow = showAll
     ? notes
     : notes.filter(note => note.important === true)
+
 
   return (
     <div>
