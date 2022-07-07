@@ -76,7 +76,7 @@ app.delete('/api/notes/:id', async (request, response, next) => {
 })
 
 
-app.post('/api/notes', (request, response) => {
+app.post('/api/notes', async (request, response, next) => {
   const body = request.body
 
   if (body.content === undefined) {
@@ -89,21 +89,30 @@ app.post('/api/notes', (request, response) => {
     date: new Date(),
   })
 
-  note.save().then(savedNote => {
+  try {
+    const savedNote = await note.save()
     response.json(savedNote)
-  })
+  } catch (error) {
+    next(error)
+  }
+
 })
 
 app.put('/api/notes/:id', async (request, response, next) => {
   const body = request.body
+  const id = request.params.id
 
-  const note = {
-    content: body.content,
-    important: body.important,
-  }
+  const { content, important } = request.body
+
 
   try {
-    const updatedNote = Note.findByIdAndUpdate(request.params.id, note, { new: true })
+    const updatedNote = await Note
+      .findByIdAndUpdate(
+        id,
+        { content, important },
+        { new: true, runValidators: true, context: 'query' }
+      )
+
     response.json(updatedNote)
 
   } catch (error) {
@@ -122,6 +131,10 @@ const errorHandler = (error, request, response, next) => {
 
   if (error.name === 'CastError') {
     return response.status(400).send({ error: 'malformatted id' })
+  }
+
+  else if (error.name === 'ValidationError') {
+    return response.status(400).json({ error: error.message })
   }
 
   next(error)
