@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import noteService from './services/notes'
 import Notification from './components/Notification'
 import Footer from './components/Footer'
+import React from 'react'
 
 
 function App() {
